@@ -3,8 +3,8 @@ module qnurye/qnurye.me
 go 1.20
 
 require (
+	github.com/BurntSushi/toml v1.3.2
 	github.com/gin-gonic/gin v1.9.1
-	github.com/go-ini/ini v1.67.0
 )
 
 require (

@@ -1,28 +1,30 @@
 package config
 
 import (
-	"log"
+	"github.com/BurntSushi/toml"
+	"path/filepath"
+	"sync"
 	"time"
 )
-import (
-	"github.com/go-ini/ini"
-)
 
-type App struct {
+type AppConfig struct {
+	App      app
+	Server   server
+	Database database
+	Redis    redis
+}
+
+type app struct {
 	JwtSecret string
 	BaseUrl   string
 }
 
-var AppConfig = &App{}
-
-type Server struct {
+type server struct {
 	RunMode      string
 	HttpPort     int
 	ReadTimeout  time.Duration
 	WriteTimeout time.Duration
 }
-
-var ServerConfig = &Server{}
 
 type database struct {
 	Type     string
@@ -33,8 +35,6 @@ type database struct {
 	Name     string
 }
 
-var DatabaseConfig = &database{}
-
 type redis struct {
 	Host        string
 	Port        int
@@ -43,29 +43,20 @@ type redis struct {
 	IdleTimeout time.Duration
 }
 
-var RedisConfig = &redis{}
+var (
+	cfg  *AppConfig
+	once sync.Once
+)
 
-var cfg *ini.File
-
-func mapTo(section string, v interface{}) {
-	err := cfg.Section(section).MapTo(v)
-	if err != nil {
-		log.Fatalf("Cfg.MapTo %s err: %v", section, err)
-	}
-}
-
-func Setup() {
-	var err error
-	cfg, err = ini.Load("conf/app.ini")
-
-	if err != nil {
-		log.Fatalf("Failed to parse \"conf/app.ini\": %v", err)
-	}
-
-	mapTo("app", AppConfig)
-	mapTo("server", ServerConfig)
-	mapTo("database", DatabaseConfig)
-	mapTo("redis", RedisConfig)
-
-	// TODO: Complete the config func
+func Config() *AppConfig {
+	once.Do(func() {
+		filePath, err := filepath.Abs("./conf/app.toml")
+		if err != nil {
+			panic(err)
+		}
+		if _, err := toml.DecodeFile(filePath, &cfg); err != nil {
+			panic(err)
+		}
+	})
+	return cfg
 }

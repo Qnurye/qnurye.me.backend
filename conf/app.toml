@@ -1,0 +1,24 @@
+[app]
+JwtSecret = ""
+BaseUrl = ""
+
+[server]
+RunMode = ""
+HttpPort = 8080
+ReadTimeout = 60
+WriteTimeout = 60
+
+[database]
+Type = "mysql"
+Host = "localhost"
+Port = 3306
+User = "qnuryeDotMe"
+Password = "qnuryeDotMe"
+Name = "qnuryeDotMe"
+
+[redis]
+Host = "localhost"
+Port = 6379
+MaxIdle = 30
+MaxActive = 30
+IdleTimeout = 200
