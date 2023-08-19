@@ -1,7 +1,7 @@
 package models
 
 import (
-	"qnurye/qnurye.me/internal/db"
+	"qnurye/qnurye.me/pkg/db"
 	"time"
 )
 

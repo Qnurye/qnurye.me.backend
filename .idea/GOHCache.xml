@@ -114,7 +114,7 @@
         <entry key="file://$PROJECT_DIR$/models/posts.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692421238089" />
+              <option name="lastModified" value="1692448987038" />
               <option name="schema">
                 <list>
                   <option value="Post" />
@@ -126,7 +126,7 @@
         <entry key="file://$PROJECT_DIR$/models/users.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692431172331" />
+              <option name="lastModified" value="1692448987062" />
               <option name="schema">
                 <list>
                   <option value="User" />
