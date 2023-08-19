@@ -1,6 +1,7 @@
 package models
 
 import (
+	"errors"
 	"qnurye/qnurye.me/pkg/db"
 	"time"
 )
@@ -17,22 +18,27 @@ type Post struct {
 	UploadTime time.Time `gorm:"autoCreateTime;column:uploadTime;type:TIMESTAMP;default:now();" json:"uploadTime"`
 }
 
-func (u Post) Create(title string, sum string, content string) (*Post, error) {
+func (p Post) Create(title string, sum string, content string) (*Post, error) {
 	d := db.Get()
 
-	u.Title = title
-	u.Summary = sum
-	u.Content = content
+	p.Title = title
+	p.Summary = sum
+	p.Content = content
 
-	if err := d.Create(&u).Error; err != nil {
+	if err := d.Create(&p).Error; err != nil {
 		return nil, err
 	}
 
-	return &u, nil
+	return &p, nil
 }
 
-func (u Post) GetById(i int) *Post {
-	db.Get().First(&u, i)
+var PostNotFound = errors.New("comment not found")
 
-	return &u
+func (p Post) GetById(i uint) (*Post, error) {
+	err := db.Get().First(&p, i)
+	if err != nil {
+		return &p, PostNotFound
+	}
+
+	return &p, nil
 }

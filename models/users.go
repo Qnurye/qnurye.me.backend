@@ -1,6 +1,7 @@
 package models
 
 import (
+	"errors"
 	"qnurye/qnurye.me/pkg/db"
 	"time"
 )
@@ -31,8 +32,13 @@ func (u User) Create(nickname string, email string, pwd string, website string) 
 	return &u, nil
 }
 
-func (u User) GetById(i int) *User {
-	db.Get().First(&u, i)
+var UserNotFound = errors.New("comment not found")
 
-	return &u
+func (u User) GetById(i uint) (*User, error) {
+	err := db.Get().First(&u, i)
+	if err != nil {
+		return &u, UserNotFound
+	}
+
+	return &u, nil
 }

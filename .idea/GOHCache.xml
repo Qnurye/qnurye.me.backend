@@ -3,6 +3,13 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="Comment">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/models/comments.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Comments">
           <value>
             <set>
@@ -20,6 +27,7 @@
         <entry key="Post">
           <value>
             <set>
+              <option value="file://$PROJECT_DIR$/models/comments.go" />
               <option value="file://$PROJECT_DIR$/models/posts.go" />
             </set>
           </value>
@@ -102,10 +110,10 @@
         <entry key="file://$PROJECT_DIR$/models/comments.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692420992470" />
+              <option name="lastModified" value="1692455349918" />
               <option name="schema">
                 <list>
-                  <option value="Comments" />
+                  <option value="Comment" />
                 </list>
               </option>
             </ScannedPath>
@@ -114,7 +122,7 @@
         <entry key="file://$PROJECT_DIR$/models/posts.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692448987038" />
+              <option name="lastModified" value="1692455030175" />
               <option name="schema">
                 <list>
                   <option value="Post" />
@@ -126,7 +134,7 @@
         <entry key="file://$PROJECT_DIR$/models/users.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692448987062" />
+              <option name="lastModified" value="1692455030182" />
               <option name="schema">
                 <list>
                   <option value="User" />
@@ -185,6 +193,7 @@
     <option name="tableStructMapping">
       <map>
         <entry key="aes_key" value="aesKey" />
+        <entry key="comment" value="Comment" />
         <entry key="comments" value="Comments" />
         <entry key="keys" value="Keys" />
         <entry key="post" value="Post" />
