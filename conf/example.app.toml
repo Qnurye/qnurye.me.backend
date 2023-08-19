@@ -1,0 +1,30 @@
+[app]
+base_url = 'localhost'
+
+[database]
+host = 'localhost'
+name = ''
+password = ''
+port = 3306
+type = 'mysql'
+user = ''
+
+[redis]
+host = ''
+idle_timeout = 200
+max_active = 30
+max_idle = 30
+port = 6379
+
+[secret]
+client_iv = ''
+client_key = ''
+database_iv = ''
+database_key = ''
+jwt = ''
+
+[server]
+http_port = 8080
+read_timeout = 60
+run_mode = 'dev'
+write_timeout = 60

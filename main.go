@@ -1,8 +1,6 @@
 package main
 
-import (
-	"qnurye/qnurye.me/routers"
-)
+import "qnurye/qnurye.me/routers"
 
 func main() {
 	r := routers.SetUp()

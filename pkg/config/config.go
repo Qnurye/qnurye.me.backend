@@ -1,62 +1,37 @@
 package config
 
 import (
-	"github.com/BurntSushi/toml"
-	"path/filepath"
-	"sync"
-	"time"
+	"github.com/spf13/viper"
+	"log"
 )
 
-type AppConfig struct {
-	App      app
-	Server   server
-	Database database
-	Redis    redis
+var config *viper.Viper
+
+func init() {
+	var err error
+	config = viper.New()
+	config.SetConfigType("toml")
+	config.SetConfigName("app")
+	config.AddConfigPath("../conf/")
+	config.AddConfigPath("conf/")
+	err = config.ReadInConfig()
+	if err != nil {
+		log.Fatal("error on parsing configuration file: ", err)
+	}
 }
 
-type app struct {
-	JwtSecret string
-	BaseUrl   string
+func Get() *viper.Viper {
+	return config
 }
 
-type server struct {
-	RunMode      string
-	HttpPort     int
-	ReadTimeout  time.Duration
-	WriteTimeout time.Duration
+func Set(Key string, value any) {
+	config.Set(Key, value)
+	err := config.WriteConfig()
+	if err != nil {
+		log.Fatalln("Error on writing into config file: ", err)
+	}
 }
 
-type database struct {
-	Type     string
-	Host     string
-	Port     int
-	User     string
-	Password string
-	Name     string
-}
-
-type redis struct {
-	Host        string
-	Port        int
-	MaxIdle     int
-	MaxActive   int
-	IdleTimeout time.Duration
-}
-
-var (
-	cfg  *AppConfig
-	once sync.Once
-)
-
-func Config() *AppConfig {
-	once.Do(func() {
-		filePath, err := filepath.Abs("./conf/app.toml")
-		if err != nil {
-			panic(err)
-		}
-		if _, err := toml.DecodeFile(filePath, &cfg); err != nil {
-			panic(err)
-		}
-	})
-	return cfg
+func GetFilePath() string {
+	return config.ConfigFileUsed()
 }
