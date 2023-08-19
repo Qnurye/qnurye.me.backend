@@ -1,24 +1,30 @@
 [app]
-JwtSecret = ""
-BaseUrl = ""
-
-[server]
-RunMode = ""
-HttpPort = 8080
-ReadTimeout = 60
-WriteTimeout = 60
+base_url = ''
 
 [database]
-Type = "mysql"
-Host = "localhost"
-Port = 3306
-User = "qnuryeDotMe"
-Password = "qnuryeDotMe"
-Name = "qnuryeDotMe"
+host = 'localhost'
+name = 'qnuryeDotMe'
+password = 'qnuryeDotMe'
+port = 3306
+type = 'mysql'
+user = 'qnuryeDotMe'
 
 [redis]
-Host = "localhost"
-Port = 6379
-MaxIdle = 30
-MaxActive = 30
-IdleTimeout = 200
+host = 'localhost'
+idle_timeout = 200
+max_active = 30
+max_idle = 30
+port = 6379
+
+[secret]
+client_iv = 'Kq/DrT8FzDHL0vWEROZi2w=='
+client_key = 'bL0PYMvGGZdBHT82coTtM2QfYfU8z9BoMs7I7t1Jdqk='
+database_iv = 'mxuEdoZ08iCGdy/X7CTFMQ=='
+database_key = '0CsO4r51WkjJfmWKyw5iGm25sdF2xTzslBi/09ahBEI='
+jwt = 'GtblickukA2+nqDqs2+oB8QrTPrTQMhFWIIROyBw/KI='
+
+[server]
+http_port = 8080
+read_timeout = 60
+run_mode = ''
+write_timeout = 60
