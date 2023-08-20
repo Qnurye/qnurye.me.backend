@@ -2,22 +2,12 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func SetUp() *gin.Engine {
-	r := gin.Default()
+	router := gin.New()
 
-	r.GET("/Hello", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "World",
-		})
-	})
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "pong",
-		})
-	})
+	Api{router.Group("api/v1")}.Setup()
 
-	return r
+	return router
 }

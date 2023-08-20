@@ -18,6 +18,8 @@ type Post struct {
 	UploadTime time.Time `gorm:"autoCreateTime;column:uploadTime;type:TIMESTAMP;default:now();" json:"uploadTime"`
 }
 
+var PostNotFound = errors.New("comment not found")
+
 func (p Post) Create(title string, sum string, content string) (*Post, error) {
 	d := db.Get()
 
@@ -32,8 +34,6 @@ func (p Post) Create(title string, sum string, content string) (*Post, error) {
 	return &p, nil
 }
 
-var PostNotFound = errors.New("comment not found")
-
 func (p Post) GetById(i uint) (*Post, error) {
 	err := db.Get().First(&p, i)
 	if err != nil {
@@ -41,4 +41,23 @@ func (p Post) GetById(i uint) (*Post, error) {
 	}
 
 	return &p, nil
+}
+
+func (p Post) Take(limit, offset int) (*[]Post, error) {
+	d := db.Get()
+	var posts []Post
+
+	if limit != 0 {
+		d = d.Limit(limit)
+	}
+	if offset != 0 {
+		d = d.Offset(offset)
+	}
+
+	err := d.Find(&posts).Error
+	if err != nil {
+		return nil, err
+	}
+
+	return &posts, nil
 }

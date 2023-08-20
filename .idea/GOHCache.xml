@@ -3,6 +3,13 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="Api">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/routers/api.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Comment">
           <value>
             <set>
@@ -10,32 +17,17 @@
             </set>
           </value>
         </entry>
-        <entry key="Comments">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/models/comments.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="Keys">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/pkg/secret/secrete.go" />
-            </set>
-          </value>
-        </entry>
         <entry key="Post">
           <value>
             <set>
-              <option value="file://$PROJECT_DIR$/models/comments.go" />
               <option value="file://$PROJECT_DIR$/models/posts.go" />
             </set>
           </value>
         </entry>
-        <entry key="Posts">
+        <entry key="PostController">
           <value>
             <set>
-              <option value="file://$PROJECT_DIR$/models/posts.go" />
+              <option value="file://$PROJECT_DIR$/controllers/PostController.go" />
             </set>
           </value>
         </entry>
@@ -43,7 +35,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/pkg/secret/secret.go" />
-              <option value="file://$PROJECT_DIR$/pkg/secret/secrete.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ServerController">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/controllers/ServerController.go" />
             </set>
           </value>
         </entry>
@@ -54,17 +52,10 @@
             </set>
           </value>
         </entry>
-        <entry key="Users">
+        <entry key="response">
           <value>
             <set>
-              <option value="file://$PROJECT_DIR$/models/users.go" />
-            </set>
-          </value>
-        </entry>
-        <entry key="aesKey">
-          <value>
-            <set>
-              <option value="file://$PROJECT_DIR$/pkg/password/password.go" />
+              <option value="file://$PROJECT_DIR$/pkg/response/response.go" />
             </set>
           </value>
         </entry>
@@ -72,20 +63,6 @@
     </option>
     <option name="scannedPathMapping">
       <map>
-        <entry key="file://$PROJECT_DIR$/cmd/secret/generate.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1692426255697" />
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/cmd/secret/main.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1692426603075" />
-            </ScannedPath>
-          </value>
-        </entry>
         <entry key="file://$PROJECT_DIR$/cmd/secret/secret.go">
           <value>
             <ScannedPath>
@@ -93,24 +70,41 @@
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/internal/db/db.go">
+        <entry key="file://$PROJECT_DIR$/controllers/PostController.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692427864686" />
+              <option name="lastModified" value="1692514854926" />
+              <option name="schema">
+                <list>
+                  <option value="PostController" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/controllers/ServerController.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692510491113" />
+              <option name="schema">
+                <list>
+                  <option value="ServerController" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692397795163" />
+              <option name="lastModified" value="1692521603117" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/models/comments.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692455349918" />
+              <option name="lastModified" value="1692508597831" />
               <option name="schema">
                 <list>
                   <option value="Comment" />
@@ -122,7 +116,7 @@
         <entry key="file://$PROJECT_DIR$/models/posts.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692455030175" />
+              <option name="lastModified" value="1692511653214" />
               <option name="schema">
                 <list>
                   <option value="Post" />
@@ -134,7 +128,7 @@
         <entry key="file://$PROJECT_DIR$/models/users.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692455030182" />
+              <option name="lastModified" value="1692509467191" />
               <option name="schema">
                 <list>
                   <option value="User" />
@@ -150,10 +144,36 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/pkg/db/db.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692427864686" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/pkg/password/password.go">
           <value>
             <ScannedPath>
               <option name="lastModified" value="1692425306566" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/pkg/response/code.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692514319498" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/pkg/response/response.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1692514854953" />
+              <option name="schema">
+                <list>
+                  <option value="response" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -169,13 +189,13 @@
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/pkg/secret/secrete.go">
+        <entry key="file://$PROJECT_DIR$/routers/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692429236062" />
+              <option name="lastModified" value="1692514854923" />
               <option name="schema">
                 <list>
-                  <option value="Secret" />
+                  <option value="Api" />
                 </list>
               </option>
             </ScannedPath>
@@ -184,7 +204,7 @@
         <entry key="file://$PROJECT_DIR$/routers/routers.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1692349575469" />
+              <option name="lastModified" value="1692522440058" />
             </ScannedPath>
           </value>
         </entry>
@@ -192,17 +212,16 @@
     </option>
     <option name="tableStructMapping">
       <map>
-        <entry key="aes_key" value="aesKey" />
+        <entry key="api" value="Api" />
         <entry key="comment" value="Comment" />
-        <entry key="comments" value="Comments" />
-        <entry key="keys" value="Keys" />
         <entry key="post" value="Post" />
-        <entry key="posts" value="Posts" />
+        <entry key="post_controller" value="PostController" />
+        <entry key="response" value="response" />
         <entry key="secret" value="Secret" />
+        <entry key="server_controller" value="ServerController" />
         <entry key="user" value="User" />
-        <entry key="users" value="Users" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1692378545745" />
+    <option name="lastTimeChecked" value="1692520947978" />
   </component>
 </project>

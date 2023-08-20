@@ -17,6 +17,8 @@ type User struct {
 	RegisterTime time.Time `gorm:"autoCreateTime;column:registerTime;type:TIMESTAMP;default:now();" json:"registerTime"`
 }
 
+var UserNotFound = errors.New("comment not found")
+
 func (u User) Create(nickname string, email string, pwd string, website string) (*User, error) {
 	u.Nickname = nickname
 	u.Email = email
@@ -31,8 +33,6 @@ func (u User) Create(nickname string, email string, pwd string, website string) 
 
 	return &u, nil
 }
-
-var UserNotFound = errors.New("comment not found")
 
 func (u User) GetById(i uint) (*User, error) {
 	err := db.Get().First(&u, i)

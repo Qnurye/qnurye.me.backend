@@ -16,6 +16,8 @@ type Comment struct {
 	CreateTime time.Time `gorm:"autoCreateTime;column:createTime;type:TIMESTAMP;default:NOW();" json:"createTime"`
 }
 
+var CommentNotFound = errors.New("comment not found")
+
 func (c Comment) Create(parentId uint, userId uint, postId uint, content string) (*Comment, error) {
 	d := db.Get()
 
@@ -43,8 +45,6 @@ func (c Comment) Create(parentId uint, userId uint, postId uint, content string)
 
 	return &c, nil
 }
-
-var CommentNotFound = errors.New("comment not found")
 
 func (c Comment) GetById(i uint) (*Comment, error) {
 	err := db.Get().First(&c, i)
